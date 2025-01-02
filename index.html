@@ -135,10 +135,17 @@
             const todayIndex = new Date().getDate() % books.length;
             const todayBook = books[todayIndex];
 
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('en-US', {
+                month: 'short',
+                day: '2-digit',
+                year: 'numeric'
+            });
+
             document.getElementById('book-title').textContent = todayBook.title;
             document.getElementById('book-author').textContent = todayBook.author;
             document.getElementById('book-description').textContent = todayBook.description;
-            document.getElementById('book-date').textContent = todayBook.date;
+            document.getElementById('book-date').textContent = formattedDate;
             document.getElementById('book-image').src = todayBook.image;
 
             const tagsContainer = document.getElementById('book-tags');
