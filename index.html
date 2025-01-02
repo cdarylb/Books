@@ -4,42 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1BOOK1DAY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             background-color: #f9fafb;
             color: #2c3e50;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        header h1 {
-            font-size: 24px;
-            color: #285E67;
-            font-weight: 600;
-        }
-
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        header nav a {
-            text-decoration: none;
-            color: #34495e;
-            font-size: 16px;
-            font-weight: 400;
         }
 
         .hero {
@@ -62,57 +33,20 @@
         }
 
         .book-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 40px 20px;
         }
 
         .book-card {
-            display: flex;
-            align-items: stretch;
-            background-color: #ffffff;
-            border-radius: 8px;
-            max-width: 900px;
-            margin-bottom: 40px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
         }
 
         .book-card img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
             object-fit: cover;
         }
 
-        .book-details {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
         .book-details h4 {
-            margin: 0;
-            margin-top: 20px;
-            font-size: 24px;
             color: #7f8c8d;
             font-weight: 600;
-        }
-
-        .book-details p {
-            margin: 10px 0;
-            line-height: 1.6;
-            color: #7f8c8d;
-        }
-
-        .book-details .tags {
-            margin: 20px 0;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
         }
 
         .book-details .tags span {
@@ -120,36 +54,6 @@
             border-radius: 4px;
             color: white;
             font-size: 12px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            border-top: 1px solid #eaeaea;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #285E67;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 400;
-        }
-
-        @media (max-width: 768px) {
-            .book-card {
-                flex-direction: column;
-            }
-
-            .book-card img {
-                max-width: 100%;
-                border-radius: 8px 8px 0 0;
-            }
-
-            .book-details {
-                text-align: center;
-            }
         }
     </style>
     <script>
@@ -192,13 +96,15 @@
     </script>
 </head>
 <body>
-    <header>
-        <h1>1BOOK1DAY</h1>
-        <nav>
-            <a href="#">About</a>
-            <a href="all_books.html">All books</a>
-            <a href="#">Contact</a>
-        </nav>
+    <header class="bg-light py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <h1 class="h4">1BOOK1DAY</h1>
+            <nav>
+                <a href="#" class="text-decoration-none me-3">About</a>
+                <a href="all_books.html" class="text-decoration-none me-3">All books</a>
+                <a href="#" class="text-decoration-none">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <div class="hero">
@@ -206,26 +112,32 @@
         <p>A curated list of books, thoughtfully selected with love and beautifully illustrated by AI.</p>
     </div>
 
-    <section class="book-section">
-        <div class="book-card">
-            <img id="book-image" src="" alt="Book cover">
-            <div class="book-details">
-                <span id="book-date" class="tags"></span>
-                <h4 id="book-title"></h4>
-                <p id="book-author"></p>
-                <p id="book-description"></p>
-                <div id="book-tags" class="tags"></div>
-                <a href="#" class="buy-btn">Buy the book</a>
+    <section class="book-section container">
+        <div class="row g-4 align-items-center book-card">
+            <div class="col-md-4">
+                <img id="book-image" src="" alt="Book cover" class="img-fluid rounded">
+            </div>
+            <div class="col-md-8">
+                <div class="book-details">
+                    <span id="book-date" class="tags d-block mb-3"></span>
+                    <h4 id="book-title"></h4>
+                    <p id="book-author" class="fw-bold"></p>
+                    <p id="book-description"></p>
+                    <div id="book-tags" class="tags mb-3"></div>
+                    <a href="#" class="btn btn-primary">Buy the book</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>
-            <a href="#">About</a> |
-            <a href="all_books.html">All books</a> |
-            <a href="#">Contact</a>
-        </p>
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>
+                <a href="#" class="text-decoration-none me-3">About</a>
+                <a href="all_books.html" class="text-decoration-none me-3">All books</a>
+                <a href="#" class="text-decoration-none">Contact</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
