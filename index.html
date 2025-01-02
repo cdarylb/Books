@@ -73,8 +73,9 @@
 
             document.getElementById('book-title').textContent = todayBook.title;
             document.getElementById('book-author').textContent = todayBook.author;
+            document.getElementById('book-hook').textContent = todayBook.hook;
             document.getElementById('book-description').textContent = todayBook.description;
-            document.getElementById('book-date').textContent = formattedDate;
+            document.getElementById('book-buy').textContent = todayBook.buy;
             document.getElementById('book-image').src = todayBook.image;
 
             const tagsContainer = document.getElementById('book-tags');
@@ -122,7 +123,9 @@
                     <span id="book-date" class="tags d-block mb-3"></span>
                     <h4 id="book-title"></h4>
                     <p id="book-author" class="fw-bold"></p>
+                    <p id="book-hook" class="fst-italic"></p>
                     <p id="book-description"></p>
+                    <p id="book-buy" class="fw-semibold text-success"></p>
                     <div id="book-tags" class="tags mb-3"></div>
                     <a href="#" class="btn btn-primary">Buy the book</a>
                 </div>

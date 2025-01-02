@@ -1,17 +1,19 @@
 [
     {
-        "date": "Dec. 23 2024",
         "title": "The Hobbit",
         "author": "J.R.R. Tolkien - 1937",
+        "hook": "Join Bilbo on an unexpected journey.",
         "description": "In The Hobbit, Bilbo Baggins, a peaceful hobbit from the Shire, is reluctantly swept into an epic adventure by the wizard Gandalf and thirteen dwarves...",
+        "buy": "A timeless tale of courage and adventure, perfect for fantasy lovers.",
         "image": "img/bilbo.png",
         "tags": ["Fantasy"]
     },
     {
-        "date": "Dec. 24 2024",
         "title": "1984",
         "author": "George Orwell - 1949",
+        "hook": "Explore the perils of a dystopian future.",
         "description": "1984 is a dystopian novel by George Orwell that explores the dangers of totalitarianism and extreme political ideology...",
+        "buy": "A must-read for those who value freedom and critical thought.",
         "image": "img/1984.png",
         "tags": ["Dystopian", "Political"]
     }
