@@ -30,8 +30,12 @@
             font-weight: 600;
         }
 
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
         header nav a {
-            margin-left: 20px;
             text-decoration: none;
             color: #34495e;
             font-size: 16px;
@@ -72,18 +76,20 @@
             border-radius: 8px;
             max-width: 900px;
             margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .book-card img {
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
-            max-width: 450px;
+            max-width: 100%;
             height: auto;
+            flex: 1 1 300px;
         }
 
         .book-details {
             padding: 20px;
-            flex: 1;
+            flex: 1 1 300px;
         }
 
         .book-details h4 {
@@ -104,12 +110,14 @@
             margin: 20px 0;
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .book-details .tags span {
             padding: 5px 10px;
             border-radius: 4px;
             color: white;
+            font-size: 12px;
         }
 
         footer {
@@ -125,6 +133,66 @@
             text-decoration: none;
             margin: 0 10px;
             font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .book-card {
+                flex-direction: column;
+            }
+
+            .book-card img {
+                border-radius: 8px 8px 0 0;
+            }
+
+            .book-details {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            header nav a {
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .book-details h4 {
+                font-size: 20px;
+            }
+
+            .book-details p {
+                font-size: 14px;
+            }
         }
     </style>
     <script>
