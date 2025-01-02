@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoOOK - Not a day without a book</title>
+    <title>1BOOK1DAY</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -100,59 +100,16 @@
             color: #7f8c8d;
         }
 
-        .book-details span {
+        .book-details .tags {
             margin: 20px 0;
-            padding: 8px;
-            line-height: 1.6;
-            color: #FFF;
-            font-size: 11px;
-            background-color: #EBBFAE;
-            border-radius: 4px
-      ;
+            display: flex;
+            gap: 10px;
         }
 
-        .book-details .buy-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #285E67;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 24px;
-            margin-top: 10px;
-            font-weight: 600;
-        }
-
-        .call-to-action {
-            background-color: #93AEB2;
-            padding: 40px 40px;
-            text-align: center;
-            margin: 20px;
-            border-radius: 24px;
-          
-        }
-
-        .call-to-action h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #FFF;
-            font-weight: 600;
-        }
-
-        .call-to-action p {
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #FFF;
-            font-weight: 300;
-        }
-
-        .call-to-action .learn-more-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #FFF;
-            color: #285E67;
-            text-decoration: none;
-            border-radius: 24px;
-            font-weight: 600;
+        .book-details .tags span {
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
         }
 
         footer {
@@ -170,13 +127,44 @@
             font-weight: 400;
         }
     </style>
+    <script>
+        async function loadBooks() {
+            const response = await fetch('books.json');
+            const books = await response.json();
+
+            const todayIndex = new Date().getDate() % books.length;
+            const todayBook = books[todayIndex];
+
+            document.getElementById('book-title').textContent = todayBook.title;
+            document.getElementById('book-author').textContent = todayBook.author;
+            document.getElementById('book-description').textContent = todayBook.description;
+            document.getElementById('book-date').textContent = todayBook.date;
+            document.getElementById('book-image').src = todayBook.image;
+
+            const tagsContainer = document.getElementById('book-tags');
+            todayBook.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.textContent = tag;
+
+                // Set color based on tag type
+                if (tag === 'Fantasy') tagElement.style.backgroundColor = '#6A0DAD';
+                else if (tag === 'Dystopian') tagElement.style.backgroundColor = '#DC143C';
+                else if (tag === 'Political') tagElement.style.backgroundColor = '#2E8B57';
+                else tagElement.style.backgroundColor = '#555';
+
+                tagsContainer.appendChild(tagElement);
+            });
+        }
+
+        window.onload = loadBooks;
+    </script>
 </head>
 <body>
     <header>
         <h1>1BOOK1DAY</h1>
         <nav>
             <a href="#">About</a>
-            <a href="#">All books</a>
+            <a href="all_books.html">All books</a>
             <a href="#">Contact</a>
         </nav>
     </header>
@@ -188,27 +176,22 @@
 
     <section class="book-section">
         <div class="book-card">
-            <img src="img/bilbo.png" alt="The Hobbit">
+            <img id="book-image" src="" alt="Book cover">
             <div class="book-details">
-                <span>Dec. 23 2024</span>
-                <h4>The Hobbit</h4>
-                <p><strong>J.R.R. Tolkien - 1937</strong></p>
-                <p>In The Hobbit, Bilbo Baggins, a peaceful hobbit from the Shire, is reluctantly swept into an epic adventure by the wizard Gandalf and thirteen dwarves led by Thorin Oakenshield...</p>
+                <span id="book-date" class="tags"></span>
+                <h4 id="book-title"></h4>
+                <p id="book-author"></p>
+                <p id="book-description"></p>
+                <div id="book-tags" class="tags"></div>
                 <a href="#" class="buy-btn">Buy the book</a>
             </div>
         </div>
     </section>
 
-    <section class="call-to-action">
-        <h3>Buy local, love stories</h3>
-        <p>By purchasing books from an independent bookstore, you're not just buying a story — you're supporting local businesses, fostering community connections, and helping passionate booksellers share their love for literature.</p>
-        <a href="#" class="learn-more-btn">Learn more</a>
-    </section>
-
     <footer>
         <p>
             <a href="#">About</a> |
-            <a href="#">All books</a> |
+            <a href="all_books.html">All books</a> |
             <a href="#">Contact</a>
         </p>
     </footer>
