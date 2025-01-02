@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1BOOK1DAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9fafb;
+            color: #2c3e50;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #285E67;
+            font-weight: 600;
+        }
+
+        header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #34495e;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #ffffff;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+
+        .book-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .book-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .book-card img {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            max-width: 450px;
+            height: auto;
+        }
+
+        .book-details {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .book-details h4 {
+            margin: 0;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        .book-details p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #7f8c8d;
+        }
+
+        .book-details .tags {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .book-details .tags span {
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #285E67;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 400;
+        }
+    </style>
+    <script>
+        async function loadBooks() {
+            const response = await fetch('books.json');
+            const books = await response.json();
+
+            const todayIndex = new Date().getDate() % books.length;
+            const todayBook = books[todayIndex];
+
+            document.getElementById('book-title').textContent = todayBook.title;
+            document.getElementById('book-author').textContent = todayBook.author;
+            document.getElementById('book-description').textContent = todayBook.description;
+            document.getElementById('book-date').textContent = todayBook.date;
+            document.getElementById('book-image').src = todayBook.image;
+
+            const tagsContainer = document.getElementById('book-tags');
+            todayBook.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.textContent = tag;
+
+                // Set color based on tag type
+                if (tag === 'Fantasy') tagElement.style.backgroundColor = '#6A0DAD';
+                else if (tag === 'Dystopian') tagElement.style.backgroundColor = '#DC143C';
+                else if (tag === 'Political') tagElement.style.backgroundColor = '#2E8B57';
+                else tagElement.style.backgroundColor = '#555';
+
+                tagsContainer.appendChild(tagElement);
+            });
+        }
+
+        window.onload = loadBooks;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>1BOOK1DAY</h1>
+        <nav>
+            <a href="#">About</a>
+            <a href="all_books.html">All books</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Not a day without a book</h2>
+        <p>A curated list of books, thoughtfully selected with love and beautifully illustrated by AI.</p>
+    </div>
+
+    <section class="book-section">
+        <div class="book-card">
+            <img id="book-image" src="" alt="Book cover">
+            <div class="book-details">
+                <span id="book-date" class="tags"></span>
+                <h4 id="book-title"></h4>
+                <p id="book-author"></p>
+                <p id="book-description"></p>
+                <div id="book-tags" class="tags"></div>
+                <a href="#" class="buy-btn">Buy the book</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            <a href="#">About</a> |
+            <a href="all_books.html">All books</a> |
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>
