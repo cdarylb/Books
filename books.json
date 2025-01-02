@@ -2,9 +2,9 @@
     {
         "title": "The Hobbit",
         "author": "J.R.R. Tolkien - 1937",
-        "hook": "Join Bilbo on an unexpected journey.",
-        "description": "In The Hobbit, Bilbo Baggins, a peaceful hobbit from the Shire, is reluctantly swept into an epic adventure by the wizard Gandalf and thirteen dwarves...",
-        "buy": "A timeless tale of courage and adventure, perfect for fantasy lovers.",
+        "hook": "Bilbo Baggins is a quiet, unassuming hobbit living in his cozy home in the Shire, content with a peaceful life of meals and naps. But his world turns upside down when the wizard Gandalf and thirteen determined dwarves arrive on his doorstep, inviting him on an extraordinary adventure.",
+        "description": "Their quest? To reclaim the dwarves' lost kingdom and its treasure from the clutches of the fearsome dragon Smaug. Along the way, Bilbo faces trolls, goblins, wolves, and giant spiders, discovering courage and cleverness he never knew he had. But it’s the chance encounter with a mysterious creature named Gollum and a strange, magical ring that changes Bilbo’s life forever, setting the stage for a much larger saga.",
+        "buy": "The Hobbit is a timeless tale of courage, friendship, and discovery, filled with humor, danger, and the magic of Middle-earth. A must-read for fans of epic adventures and captivating storytelling.",
         "image": "img/bilbo.png",
         "tags": ["Fantasy"]
     },
